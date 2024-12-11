@@ -41,7 +41,6 @@ start /wait pos.exe ini=pos_reserv.ini sync=Y TIME_INTERVAL=12 POS_BASE=Y LOG_DE
 @echo %time:~,-3% Загружаются справочники...
 rem Запускается отдельным процессом сервер топпера (run_report, см. строку 34), затем POS с параметром VER_COLONKA=5. В случае зависания/отключения топпера КСО не будет зависать. Топпер в случае его отключения можно рестартнуть не выходя из POS, завершив процесс run_report и перезапустив его с параметром (run_report.exe VER_COLONKA=3)
 start run_report.exe VER_COLONKA=3 COLONKA=Y
-rem для КСО ENGY: VER_COLONKA=3
 TIMEOUT /T 1 > nul
 start POS.exe ini=pos_reserv.ini OFFLINE=Y KKM_TYPE=SHTRIH-M KKM_LEN=48 SELF_TERMINAL=Y LOG_DEBUGS=Y SLEEP_TIME=180 VER_COLONKA=5 AUTO_USER=Y INTERVAL_CHECK_FILE=120 ADD_SLEEP_TIME_DIALOG=180 PAY_SOUND=OK.WAV
 
